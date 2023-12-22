@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
-const Elections = () => {
-  const [stateList, setStateList] = useState([]);
+const Elections = (props) => {
   const [elections, setElections] = useState([]);
   const [electionType, setElectionType] = useState("");
   const [state, setState] = useState("");
   const [votingStatus, setVotingStatus] = useState(false);
 
+  const stateList = props.states;
   const electionTypeList = ["STATE", "CENTRAL"];
+
   function fetchData(url, callback) {
     fetch(url)
       .then((response) => response.json())
@@ -19,10 +20,6 @@ const Elections = () => {
         console.error("Error fetching photos:", error);
         callback([]);
       });
-  }
-
-  function getStatesList(states) {
-    setStateList(states);
   }
 
   function getElectionList(elections) {
@@ -64,9 +61,9 @@ const Elections = () => {
   }
 
   useEffect(() => {
-    var url = "http://localhost:8080/states";
-    fetchData(url, getStatesList);
-  }, []);
+    let url = "http://localhost:8080/electionDetail/" + stateList[0];
+    fetchData(url, getElectionList);
+  }, [stateList]);
 
   return (
     <div className="container">
