@@ -4,18 +4,18 @@ const Layout = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid" style={{backgroundColor: "#e3f2fd"}}>
-        <ul className="navbar-nav">
-          <li className="nav-item nav-link">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="nav-item nav-link">
-            <Link to="/election">Elections</Link>
-          </li>
-          {/* <li className="nav-item nav-link">
+        <div className="container-fluid" style={{ backgroundColor: "#e3f2fd" }}>
+          <ul className="navbar-nav">
+            <li className="nav-item nav-link">
+              <Link to="/home">Home</Link>
+            </li>
+            <li className="nav-item nav-link">
+              <Link to="/election">Elections</Link>
+            </li>
+            {/* <li className="nav-item nav-link">
             <Link to="/candidate">Candidates</Link>
           </li> */}
-        </ul>
+          </ul>
         </div>
       </nav>
 
