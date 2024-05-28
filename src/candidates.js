@@ -19,9 +19,11 @@ const Candidate = () => {
   }
 
   useEffect(() => {
-    if (location.state !== null) {
+    if (location.state !== null && location.electionType !== null) {
       let state = location.state.state;
-      let url = "http://localhost:8080/candidate/states/" + state;
+      let electionType = location.state.electionType;
+      let url =
+        "http://localhost:8080/candidate/states/" + state + "/" + electionType;
       fetchData(url, getCandidateList);
     }
   }, []);
@@ -31,7 +33,7 @@ const Candidate = () => {
   }
 
   function handleVoting(value) {
-    let url = "http://localhost:8080/voting?candId=" + value;
+    let url = "http://localhost:8080/user/voting?candId=" + value;
     restCall(url, "POST", null);
   }
 

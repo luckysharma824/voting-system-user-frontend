@@ -54,8 +54,8 @@ const Elections = () => {
           --Please choose state--
         </option>
         {stateList.map((st, index) => (
-          <option key={index} value={st}>
-            {st}
+          <option key={index} value={st.name}>
+            {st.name}
           </option>
         ))}
       </select>
@@ -77,7 +77,9 @@ const Elections = () => {
               <td>
                 <button
                   onClick={() =>
-                    navigate("/candidate", { state: { state: el.state } })
+                    navigate("/candidate", {
+                      state: { state: el.state, electionType: el.electionType },
+                    })
                   }
                 >
                   Click
